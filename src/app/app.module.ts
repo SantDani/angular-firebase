@@ -1,11 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+// Imports
+import { AppRoutingModule } from './app-routing.module';
+import {AngularFireModule} from "@angular/fire";
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+// Components
 import { AppComponent } from './app.component';
 import { ListEmployeeComponent } from './components/list-employee/list-employee.component';
 import { CreateEmployeeComponent } from './components/create-employee/create-employee.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { AppRoutingModule } from './app-routing.module';
+
+// Environment
+import {environment} from "../environments/environment";
 
 
 @NgModule({
@@ -17,7 +26,10 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule,
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

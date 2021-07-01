@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "employee-e3dc3": {
+      "hosting": {
+        "angular-crud-firebase": [
+          "employee-e3dc3"
+        ]
+      }
+    }
+  }
+}
