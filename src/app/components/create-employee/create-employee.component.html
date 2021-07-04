@@ -3,34 +3,45 @@
     <div class="col-lg-6 offset-lg-3">
       <div class="card text-center">
         <div class="card-body">
-          <h3>Add Employee</h3>
-          <form class="mt-4">
+          <h3>{{this.title}}
+            <div *ngIf="this.loading" class="spinner-border text-primary float-right" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </h3>
+          <span *ngIf="this.submitted && this.createEmployee.invalid" class="badge badge-danger">You must complete all the fields</span>
+          <form [formGroup]="this.createEmployee" (ngSubmit)="addEdit()" class="mt-4">
             <div class="row">
               <div class="col">
-                <input type="text" class="form-control form-control-lg" placeholder="Name">
+                <input formControlName="name"
+                  type="text" class="form-control form-control-lg" placeholder="Name">
               </div>
               <div class="col">
-                <input type="text" class="form-control form-control-lg" placeholder="Last">
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col">
-                <input type="text" class="form-control form-control-lg" placeholder="Document">
+                <input formControlName="last"
+                       type="text" class="form-control form-control-lg" placeholder="Last">
               </div>
             </div>
             <div class="row mt-3">
               <div class="col">
-                <input type="text" class="form-control form-control-lg" placeholder="Salary">
+                <input formControlName="document"
+                       type="text" class="form-control form-control-lg" placeholder="Document">
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col">
+                <input formControlName="salary"
+                       type="number" class="form-control form-control-lg" placeholder="Salary">
               </div>
             </div>
             <div class="row mt-3">
               <div class="col">
                 <button type="text" class="btn btn-secondary btn-lg mr-3" routerLink="/list-employee">Back</button>
-                <button type="submit" class="btn btn-primary btn-lg">OK</button>
+                <button  class="btn btn-primary btn-lg">OK</button>
               </div>
             </div>
 
           </form>
+
+
         </div>
       </div>
     </div>
